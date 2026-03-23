@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Tareas</title>
+</head>
+<body>
+    <main>
+        <section id="Read">
+            <div class="contenedor">
+                <h1>Lista</h1>
+
+                <ul>
+                {% for tarea in tareas %}
+                    <li>
+                        <strong>{{ tarea.nombre }}</strong><br>
+                        {{ tarea.descripcion }}<br>
+                        {{ tarea.fecha }} {{ tarea.hora }}
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        </section>
+
+        <section id="Create">
+            <div class="contenedor">
+                <h1>Nueva tarea</h1>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <input name="nombre" placeholder="Nombre"><br>
+                    <textarea name="descripcion"></textarea><br>
+                    <input type="date" name="fecha"><br>
+                    <input type="time" name="hora"><br>
+                    <button type="submit">Guardar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
