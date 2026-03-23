@@ -3,7 +3,7 @@ from .models import Tarea
 
 def lista_tareas(request):
     tareas = Tarea.objects.all()
-    return render(request, 'lista.html', {'tareas': tareas})
+    return render(request, 'tareas.html', {'tareas': tareas})
 
 def crear_tarea(request):
     if request.method == 'POST':
