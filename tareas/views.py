@@ -14,4 +14,4 @@ def crear_tarea(request):
             hora=request.POST['hora']
         )
         return redirect('/')
-    return render(request, 'crear.html')
+    return render(request, 'tareas.html')
